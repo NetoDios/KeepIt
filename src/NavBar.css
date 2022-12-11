@@ -1,0 +1,147 @@
+header {
+    background-color: var(--RED);
+}
+
+header > div > div {
+    display: flex;
+    align-items: center;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+nav {
+    background-color: transparent;
+    padding: 15px 0;
+}
+
+.SideNav {
+    padding: 0 0;
+}
+.SideNav.Nav-Contracted .container{
+    width: 80px;
+}
+.SideNav .container {
+    height: 100vh;
+    width: 250px;
+    padding: 50px 0;
+
+    flex-direction: column;
+    position: sticky;
+    left: 0;
+    top: 0;
+
+    border-radius: 0 20px 20px 0;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 50%);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.29);
+    transition: transform ease 500ms;
+}
+
+nav .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navLogo {
+    width: 20%;
+}
+
+.SideNav .navLogo {
+    width: 100%;
+    text-align: center;
+}
+
+.SideNav .navLogo img {
+    width: 50%;
+    height: auto;
+    background-color: transparent;
+}
+
+.navLogo img {
+    height: 47px;
+}
+
+.SideNav .navLinks{
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+}
+.navLinks {
+    width: 60%;
+}
+
+.SideNav .navLinks a{
+    width: 60%;
+}
+.SideNav.Nav-Contracted .navLinks a,
+.SideNav.Nav-Contracted .navButtons a{
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+.SideNav.Nav-Contracted .navLinks span,
+.SideNav.Nav-Contracted .navButtons span{
+    display: none;
+}
+.SideNav.Nav-Contracted .navLinks svg,
+.SideNav.Nav-Contracted .navButtons svg{
+    width: 30px;
+}
+.SideNav .navLinks span,
+.SideNav .navButtons span{
+    padding-left: 10px;
+}
+.navLinks a {
+    padding: 15px;
+    display: inline-block;
+    font-weight: 600;
+}
+
+.navLinks a:hover {
+    color: rgba(255, 127, 80, 0.72);
+}
+
+.navLinks .activeNav:hover,
+.navLinks .activeNav {
+    font-weight: 700;
+    color: coral;
+}
+
+.SideNav .navButtons {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.navButtons {
+    width: 20%;
+    display: flex;
+    align-items: center;
+}
+
+.LoginButton, .SignupButton {
+    width: 50%;
+    padding: 12px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.SignupButton {
+    background-color: coral;
+    font-weight: bold;
+    border-radius: 12px;
+}
+
+.LoginButton:hover {
+    text-decoration: underline;
+    color: coral;
+}

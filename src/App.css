@@ -1,38 +1,702 @@
-.App {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --RED: coral;
+  /*
+  --RED: #ba1200;
+  */
+  --DARKBG: #282c34;
+  --MAIN: coral;
+  --SECONDARY: cornflowerblue;
+}
+
+body {
+  background: linear-gradient(160deg, rgba(236, 203, 177, 0.5), rgba(236, 203, 177, 0) 100%),
+  linear-gradient(220deg, rgba(128, 203, 128, 0.5) 1%, rgba(128, 203, 128, 0) 30%),
+  linear-gradient(0deg, white, white) no-repeat fixed;
+  min-height: 100vh;
+}
+
+body > div {
+  min-height: 100vh;
+}
+
+button, .actionLink {
+  display: block;
+  cursor: pointer;
+  border: 0;
+  border-radius: 50px;
+  background-color: coral;
+  padding: 8px 0;
+  font-size: 18px;
+  transition: transform ease 500ms;
+}
+
+button:hover, .actionLink:hover {
+  transform: scale(1.01);
+}
+
+img {
+  background: #282c34;
+  border-radius: 20px;
+}
+
+input[type="text"] {
+  color: black;
+  background-color: transparent;
+  border: 0;
+  border-bottom: solid 2px var(--RED);
+}
+
+.Button {
+  text-decoration: none;
+  color: #282c34;
+  font-weight: bold;
+  font-size: large;
+  display: inline-block;
+  padding: 20px 30px;
+  border-radius: 20px;
+  background-color: brown;
+}
+
+.frosted {
+  border: 0;
+  border-radius: 20px;
+  backdrop-filter: blur(25px);
+  background-color: rgba(255, 255, 255, 25%);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.29);
+}
+
+.hide {
+  display: none;
+}
+
+.container {
+  width: 70vw;
+  margin: 0 auto;
+}
+
+
+/*  ----    Landing Page    ----    */
+.Hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 80vh;
+}
+
+.HeroText {
+  width: 40%;
+}
+
+.HeroText h1 {
+  font-size: 3.5em;
+  line-height: 1.3;
+  padding-bottom: 15px;
+}
+
+.HeroText p {
+  padding-bottom: 15px;
+  text-align: justify;
+}
+
+.HeroText .SignupButton {
+  color: white;
+  font-size: larger;
+}
+
+.Features .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Halves {
+  width: 50%;
+}
+
+.newGameButton {
+  width: 98%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.FullCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.NormalLink:hover {
+  text-decoration: underline;
+  color: coral;
+}
+
+.FeatureCard {
+  width: 85%;
+  margin: 20px auto;
+  padding: 15px;
+}
+
+.FeatureCard:hover {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.29);
+}
+
+
+/*  ----    Dashboard: League + LeagueDetail    ----    */
+.OuterFlex {
+  --GAP: 25px;
+  display: flex;
+}
+
+.Manager {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: var(--GAP);
+  background-size: 30%;
+}
+
+.Manager-Center {
+  padding: 25px 0;
+  min-height: 100vh;
+  align-content: center;
+}
+
+/*   Above Card:
+          the card that appears to create a new league
+*/
+.Above-Card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px);
+}
+
+.Above-Card .Card {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2em;
+  background-color: white;
+  padding: 80px 20px;
+}
+
+.Above-Card .Card:hover {
+  transform: scale(1);
+}
+
+.Above-Card input {
+  width: 80%;
+  font-size: xx-large;
+  color: black;
+}
+
+.Above-Card button {
+  width: 60%;
+  font-weight: bold;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+svg.Cancel-Action {
+  cursor: pointer;
+  opacity: 0.2;
+  position: absolute;
+  top: 25px;
+  right: 25px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+svg.Cancel-Action:hover {
+  opacity: 1;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/*   Card:
+          most of the things in the dashboard
+*/
+.Card {
+  flex-grow: calc(1 / 3);
+  border-radius: 20px;
+  display: inline-block;
+  padding: 20px;
+  transition: transform ease 500ms;
+}
+
+.Card:hover {
+  transform: scale(1.05);
+}
+
+.Encourage {
+  padding: 25px;
+  border-radius: 25px;
+  width: 100%;
+  height: 400px;
+  background-color: orange;
+}
+
+.container-Cards {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: var(--GAP);
+  position: relative;
+}
+
+.GamesPlayed--Left, .GamesPlayed--Right {
+  position: absolute;
+  top: calc(50% - 25px / 2);
+  content: "";
+  width: 25px;
+  height: 25px;
+  opacity: 0.2;
+  background-size: cover;
+  cursor: pointer;
+  transition: opacity 500ms ease;
+}
+
+.GamesPlayed--Right {
+  right: -40px;
+}
+
+.GamesPlayed--Left {
+  left: -40px;
+
+}
+
+.GamesPlayed--Left:hover, .GamesPlayed--Right:hover {
+  opacity: 1;
+}
+
+.LeagueTeams {
+  margin: 0 auto;
+  height: 70px;
+  width: 100%;
+}
+
+.League h2 {
+  margin: 0 auto;
+  text-align: left;
+  width: 100%;
+}
+
+.GameCard {
+  min-width: calc(100% / 5); /* calc( 100% / columns+1 ) */
+  padding: 15px;
+}
+
+.GameCardScore {
+  font-size: medium;
+  font-weight: bold;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.GameDate {
+  font-size: small;
+}
+
+.GoBetween {
+  display: flex;
+  justify-content: space-between;
+}
+
+.TextLeft {
+  display: inline-block;
+  width: 45%;
+  text-align: left;
+}
+
+.TextRight {
+  display: inline-block;
+  width: 45%;
+  text-align: right;
+}
+
+.Standings {
+  min-width: 40%;
+  flex: 1 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.Standing-Item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: large;
+  font-weight: bold;
+  position: relative;
+}
+
+.Standing-Item > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 40%;
+}
+
+.Standing-Item + .Standing-Item {
+  padding-top: 10px;
+}
+
+.Standing-Wins, .Standing-Loss {
+  width: 100%;
+  text-align: center;
+}
+
+.Standing-Header .Standing-Team {
+  width: 50%;
+  text-align: center;
+}
+
+.Standing-Header .Standing-Team p,
+.Standing-Header .Standing-Wins p,
+.Standing-Header .Standing-Loss p {
+  padding: 2px 35px;
+  border-radius: 1em;
+  display: inline;
+}
+
+.Standing-Header .Standing-Team p {
+  padding: 2px 30%;
+  background-color: coral;
+}
+
+.Standing-Header .Standing-Wins p {
+  background-color: green;
+}
+
+.Standing-Header .Standing-Loss p {
+  background-color: red;
+}
+
+.Graph {
+  background: url("assets/chart.png");
+
+  background-size: cover;
+  min-width: 40%;
+  flex: 1 0 auto;
+  min-height: 30vh;
+}
+
+
+/*  ----    Scoreboard    ----    */
+
+.container-ScoreBoard {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  padding: 30px 0;
+}
+
+.ScoreBoard {
+  padding: 20px;
+  transition: transform ease 500ms;
+
+  width: fit-content;
+  width: -moz-fit-content;
+  margin: 0 auto;
+  color: black;
+  display: flex;
+  align-items: center;
+}
+
+.ScoreBoard--Content {
+  --Size: calc(70vh / 9);
+  width: fit-content;
+  width: -moz-fit-content;
+  max-width: 65vw;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+}
+
+.ScoreBoard--Team {
+  padding: 20px;
+  padding-left: 0;
+  font-size: large;
+  font-weight: bold;
+
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  writing-mode: sideways-lr;
+  text-orientation: sideways;
+}
+
+.ScoreLine {
+  border-bottom: solid 2px #353535;
+  display: flex;
+  align-items: center;
+}
+
+.ScorePlayer {
+  height: var(--Size);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.ScoreHeader .ScorePlayer {
+  height: 100%;
+}
+
+.ScorePlayer div, .ScoreHeader .ScorePlayer {
+  width: calc(350px);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.ScoreNumber, .ScorePosition {
+  width: 10%;
+  text-align: center;
+}
+
+.ScorePlayer .AddPlayer {
+  border: solid 1px #353535;
+  border-radius: 10px;
+  width: 80%;
+}
+
+.AddPlayer:hover {
+  background-color: var(--MAIN);
+  color: #353535;
+}
+
+.ScoreName {
+  width: 80%;
+  text-align: center;
+}
+
+.ScoreInnings {
+  display: flex;
+}
+
+.ScoreHeader .ScoreInnings span {
+  width: var(--Size);
+  text-align: center;
+}
+
+input[type="text"].ScoreName {
+  padding: 0 10px 0 20px;
+  text-align: left;
+}
+
+.Turn {
+  width: var(--Size);
+  height: var(--Size);
+
+  display: block;
+  overflow: hidden;
+  position: relative;
+  z-index: 100;
+
+  border-left: solid 1px #353535;
+}
+
+.Assistance {
+  --Size: 50px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 80%;
+}
+
+.Assistance > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.Assistance > span {
+  width: 35%;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.Assistance .Turn {
+  width: 65px;
+  height: 65px;
+  border: 0;
+}
+
+.FB-BG {
+  background: url("./assets/FB-BG.png");
+  background-size: cover;
+}
+
+.SB-BG {
+  background: url("./assets/SB-BG.png");
+  background-size: cover;
+}
+
+.TB-BG {
+  background: url("./assets/TB-BG.png");
+  background-size: cover;
+}
+
+.HB-BG {
+  background: url("./assets/HB-BG.png");
+  background-size: cover;
+}
+
+
+.Turn--MainHL {
+  outline: thick var(--RED) solid;
+  border: 0;
+  z-index: 1000;
+}
+
+.Turn--HL {
+  outline: medium var(--RED) solid;
+  border: 0;
+  z-index: 1000;
+}
+
+.turnOutcome {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: xx-large;
+  font-weight: bold;
+  color: darkcyan;
+  z-index: 1;
+}
+
+.Turn-Edit .turnOutcome, .Assistance .turnOutcome{
+  background: transparent;
+  border: 0;
+  text-align: center;
+  font-size: xxx-large;
+}
+.Assistance .turnOutcome{
+  font-size: x-large;
+}
+
+.baseSquare {
+  --BasePadding: calc(var(--Size) / 8);
+  --BaseWidth: calc(var(--Size) / 5);
+  width: var(--BaseWidth);
+  height: var(--BaseWidth);
+
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.baseSquare input {
+  text-align: center;
+  font-size: 1.5rem;
   color: white;
+  width: 80%;
 }
 
-.App-link {
-  color: #61dafb;
+.baseSquare-1 {
+  bottom: calc(50% - var(--BaseWidth) / 2);
+  right: var(--BasePadding, 0);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.baseSquare-2 {
+  top: var(--BasePadding, 0);
+  left: calc(50% - var(--BaseWidth) / 2);
+}
+
+.baseSquare-3 {
+  bottom: calc(50% - var(--BaseWidth) / 2);
+  left: var(--BasePadding, 0);
+}
+
+.baseSquare-4 {
+  bottom: var(--BasePadding, 0);
+  left: calc(50% - var(--BaseWidth) / 2);
+}
+
+.DontMater {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ThisTurn {
+  display: flex;
+  gap: 25px;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+}
+
+.Turn-Edit {
+  --Size: 300px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+  background: orange;
+  border: 0;
+  width: var(--Size);
+  height: var(--Size);
+  z-index: 100;
+
+  background: url("./assets/HB-BG.png");
+  background-size: cover;
+}
+
+.BallSection {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 80%;
+}
+
+.BallCircle {
+  width: 30px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #aaaaaa;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.BallCircle.ActiveBall {
+  background: orange;
+}
+
+.BallCircle.ActiveBall span {
+  background: #aaa;
+  padding-inline: 10px;
 }
